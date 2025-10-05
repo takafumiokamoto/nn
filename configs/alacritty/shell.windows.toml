@@ -1,0 +1,3 @@
+[terminal.shell]
+program = "pwsh.exe"
+args = ["-NoLogo", "-NoExit", "-Command", "Set-Location $HOME"]

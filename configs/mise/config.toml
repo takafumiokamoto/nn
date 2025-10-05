@@ -1,0 +1,23 @@
+[tools]
+# Langueges
+go = "latest"
+"go:golang.org/x/tools/gopls" = {version = "latest", depends = "go"}
+node = "latest"
+"npm:@vtsls/language-server" = {version = "latest", depends = "node"}
+python = "latest"
+zig = "latest"
+
+# language tools
+lua-language-server = "latest"
+stylua = "latest"
+oxfmt = "latest"
+uv = "latest"
+tree-sitter = "latest"
+
+codex = "latest"
+fd = "latest"
+fzf = "latest"
+neovim = "latest"
+ripgrep = "latest"
+starship = "latest"
+gh = "latest"
