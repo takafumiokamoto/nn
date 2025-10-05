@@ -1,0 +1,14 @@
+bmewburn.vscode-intelephense-client
+editorconfig.editorconfig
+esbenp.prettier-vscode
+ms-azuretools.vscode-containers
+ms-dotnettools.csdevkit
+ms-dotnettools.csharp
+ms-dotnettools.vscode-dotnet-runtime
+ms-vscode-remote.remote-containers
+ms-vscode.powershell
+onecentlin.laravel-blade
+shufo.vscode-blade-formatter
+vscodevim.vim
+xdebug.php-debug
+zobo.php-intellisense

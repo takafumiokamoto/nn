@@ -1,0 +1,34 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Windows
+$RECYCLE.BIN/
+*.lnk
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# IDE/Editor directories (keep .editorconfig)
+.vscode/
+.idea/
+*.code-workspace
+
+# Local environment files
+.env
+.env.local
+*.local
+
+# Claude Code (already in your repo)
+# .claude/
