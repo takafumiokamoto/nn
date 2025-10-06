@@ -80,6 +80,6 @@ $configPath = "$env:LOCALAPPDATA/claude"
 createSymbolicLink $configPath $targetPath
 
 # wezterm config
-$targetPath = resolveAbsPath "configs/claude"
-$configPath = "$env:LOCALAPPDATA/claude"
+$targetPath = resolveAbsPath "configs/wezterm"
+$configPath = "$env:LOCALAPPDATA/wezterm"
 createSymbolicLink $configPath $targetPath
