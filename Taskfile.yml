@@ -2,11 +2,19 @@
 
 version: '3'
 
-vars:
-  GREETING: Hello, World!
-
 tasks:
-  default:
-    cmds:
-      - echo "{{.GREETING}}"
-    silent: true
+    install:python-tools:
+        desc: Install python tools
+        cmds:
+            - uv tool install pyright ruff
+    update:python-tools:
+        desc: Update python tools
+        cmds:
+            - uv tool upgrade pyright ruff
+    install:go-tools:
+        desc: Install golang tools
+        cmds:
+            - go install golang.org/x/tools/gopls@latest
+    update:go-tools:
+        desc: Update golang tools
+        task: install:go-tools

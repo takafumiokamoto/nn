@@ -1,0 +1,58 @@
+# imports:
+#   - ./python.yaml
+
+variables:
+  config_root: ./configs
+  hook_root: ./hooks
+
+packages:
+    - name: neovim
+      tags: [editor]
+      version: ">=0.11"
+      windows:
+        backend:
+          type: winget
+          id: Neovim.Neovim
+        config:
+          location: $env:LOCALAPPDATA/nvim
+          target: ${config_root}/nvim
+          if_exists: replace
+      linux:
+        backend:
+          type: apt
+          id: neovim
+        config:
+          location: $HOME/.config/nvim
+          target: ${config_root}/nvim
+          if_exists: backup
+    - name: php
+      tags: [php]
+      version: "8.4"
+      windows:
+        backend:
+          type: winget
+          id: PHP.PHP.8.4
+        hook:
+          before_install:
+            type: inline
+            shell: powershell
+            script: |
+              Write-Host "hello world"
+          after_install:
+            type: file
+            shell: powershell
+            path: ${hook_root}/windows/after_install/php.ps1
+    - name: composer
+      tags: [php]
+      depends_on: [php]
+      version: "2.8.12"
+      windows:
+        backend:
+          type: winget
+          id: Composer.composer
+        hook:
+          before_install:
+            type: inline
+            shell: powershell
+            script: |
+              Write-Host "inline scirpt for before_install"
