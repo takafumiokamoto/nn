@@ -78,6 +78,10 @@ $targetPath = resolveAbsPath "configs/nvim"
 $configPath = "$env:LOCALAPPDATA/nvim"
 createSymbolicLink $configPath $targetPath
 
+# vscode config
+$targetPath = resolveAbsPath "configs/vscode"
+$configPath = "$env:LOCALAPPDATA/Code/User"
+createSymbolicLink $configPath $targetPath
 
 # claude config
 $targetPath = resolveAbsPath "configs/claude"

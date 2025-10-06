@@ -45,6 +45,7 @@ aqua install -l -a
 mkdir -p "$HOME/.config"
 
 create_symlink "${PROJECT_ROOT}/configs/nvim" "$HOME/.config/nvim"
+create_symlink "${PROJECT_ROOT}/configs/vscode" "$HOME/.config/Code/User"
 create_symlink "${PROJECT_ROOT}/configs/claude" "$HOME/.config/claude"
 create_symlink "${PROJECT_ROOT}/configs/wezterm" "$HOME/.config/wezterm"
 
