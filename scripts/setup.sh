@@ -41,6 +41,7 @@ add_dotprofile "ENV_AQUA_GLOBAL_CONFIG" "export AQUA_GLOBAL_CONFIG=${PROJECT_ROO
 add_dotprofile "ENV_AQUA_PROGRESS_BAR" "export AQUA_PROGRESS_BAR=true"
 source "$HOME/.profile"
 aqua install -l -a
+aqua install -a --tags essential
 
 mkdir -p "$HOME/.config"
 

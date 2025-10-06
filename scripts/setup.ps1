@@ -71,7 +71,7 @@ addUserEnv "AQUA_GLOBAL_CONFIG" (resolveAbsPath ".\aqua.yaml")
 addUserEnv "AQUA_PROGRESS_BAR" "true"
 addEnvPath "$env:LOCALAPPDATA\aquaproj-aqua\bin"
 aqua install -l -a
-
+aqua install -a --tags essential
 
 # nvim config
 $targetPath = resolveAbsPath "configs/nvim"
