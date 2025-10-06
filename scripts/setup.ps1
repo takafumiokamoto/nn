@@ -55,6 +55,10 @@ $packages = @(
         cmd="aqua";
     },
     @{
+        id="Neovim.neovim"
+        cmd="nvim";
+    },
+    @{
         id="Kitware.CMake"
         cmd="cmake";
     }
