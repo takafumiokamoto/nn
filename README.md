@@ -1,4 +1,4 @@
-# Environment Setup
+# Development Environment
 
 ## run
 
@@ -11,5 +11,6 @@ powershell --executionpolicy bypass .\entrypoints\windows.ps1
 ```
 Linux, Mac
 ```shell
+chmod +x entrypoints\linux.sh
 .\entrypoints\linux.sh
 ```
