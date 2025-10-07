@@ -49,6 +49,7 @@ create_symlink "${PROJECT_ROOT}/configs/nvim" "$HOME/.config/nvim"
 create_symlink "${PROJECT_ROOT}/configs/vscode" "$HOME/.config/Code/User"
 create_symlink "${PROJECT_ROOT}/configs/claude" "$HOME/.config/claude"
 create_symlink "${PROJECT_ROOT}/configs/wezterm" "$HOME/.config/wezterm"
+create_symlink "${PROJECT_ROOT}/configs/alacritty" "$HOME/.config/alacritty"
 
 if ! command -v cmake &> /dev/null; then
     sudo apt update

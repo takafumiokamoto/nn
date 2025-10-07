@@ -26,8 +26,10 @@ function createSymbolicLink($path, $target) {
     Write-Host "Create symbolic link: $path => $target"
     if (Test-Path $path) {
         Remove-Item -Path $path -Recurse -Force
+    } else {
+        New-Item $path -ItemType Directory
     }
-    New-Item -ItemType SymbolicLink -Path $path -Target $target
+    New-Item -ItemType SymbolicLink -Path $path -Target $target -Force
 }
 
 function checkAndInstallPackage($packages) {
@@ -92,3 +94,9 @@ createSymbolicLink $configPath $targetPath
 $targetPath = resolveAbsPath "configs/wezterm"
 $configPath = "$env:LOCALAPPDATA/wezterm"
 createSymbolicLink $configPath $targetPath
+
+# alacritty config
+$targetPath = resolveAbsPath "configs/alacritty"
+$configPath = "$env:APPDATA/alacritty"
+createSymbolicLink $configPath $targetPath
+
