@@ -1,1 +1,1 @@
-. "$PSScriptRoot/../scripts/setup.ps1"
+. "$PSScriptRoot/../scripts/pwsh/setup.ps1"
