@@ -91,7 +91,7 @@ createSymbolicLink $configPath $targetPath
 
 # wezterm config
 $targetPath = resolveAbsPath "configs/wezterm"
-$configPath = "$env:LOCALAPPDATA/wezterm"
+$configPath = "$env:USERPROFILE/.config/wezterm"
 createSymbolicLink $configPath $targetPath
 
 # alacritty config
