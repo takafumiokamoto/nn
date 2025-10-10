@@ -24,7 +24,6 @@ return {
                 ignore = false,
             }
         })
-
         vim.keymap.set('n', '<leader>ee', '<cmd>NvimTreeToggle<CR>', { desc = 'Toggle nvim-tree'})
         vim.keymap.set('n', '<leader>ef', '<cmd>NvimTreeFileToggle<CR>', { desc = 'Toggle file explorer on current file'})
         vim.keymap.set('n', '<leader>ec', '<cmd>NvimTreeCollapse<CR>', { desc = 'Collapse file explorer'})

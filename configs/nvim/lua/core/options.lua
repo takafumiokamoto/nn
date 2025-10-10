@@ -6,6 +6,7 @@ vim.g.have_nerd_font = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.mouse = "a"
+vim.opt.wrap = false
 vim.opt.showmode = false
 vim.opt.undofile = true
 vim.opt.breakindent = true

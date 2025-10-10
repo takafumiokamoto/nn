@@ -12,5 +12,10 @@ return {
       vim.cmd 'colorscheme palenightfall'
     end,
   },
-  {},
+  {
+  "killitar/obscure.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {}
+}
 }
