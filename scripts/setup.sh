@@ -43,14 +43,6 @@ source "$HOME/.profile"
 aqua install -l -a
 aqua install -a --tags essential
 
-mkdir -p "$HOME/.config"
-
-create_symlink "${PROJECT_ROOT}/configs/nvim" "$HOME/.config/nvim"
-create_symlink "${PROJECT_ROOT}/configs/vscode" "$HOME/.config/Code/User"
-create_symlink "${PROJECT_ROOT}/configs/claude" "$HOME/.config/claude"
-create_symlink "${PROJECT_ROOT}/configs/wezterm" "$HOME/.config/wezterm"
-create_symlink "${PROJECT_ROOT}/configs/alacritty" "$HOME/.config/alacritty"
-
 if ! command -v cmake &> /dev/null; then
     sudo apt update
     sudo apt install -y cmake
@@ -58,3 +50,13 @@ fi
 
 # install neovim
 install_neovim
+
+mkdir -p "$HOME/.config"
+
+create_symlink "${PROJECT_ROOT}/configs/nvim" "$HOME/.config/nvim"
+create_symlink "${PROJECT_ROOT}/configs/claude" "$HOME/.config/claude"
+create_symlink "${PROJECT_ROOT}/configs/wezterm" "$HOME/.config/wezterm"
+create_symlink "${PROJECT_ROOT}/configs/alacritty" "$HOME/.config/alacritty"
+mkdir -p "$HOME/.config"
+create_symlink "${PROJECT_ROOT}/configs/vscode" "$HOME/.config/Code/User"
+
