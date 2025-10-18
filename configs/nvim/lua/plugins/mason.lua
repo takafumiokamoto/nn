@@ -7,14 +7,17 @@ return {
         local tools = {
             "lua-language-server",
             "stylua",
+            "prettier",
         }
         if vim.fn.executable("go") == 1 then
             table.insert(tools, "gopls")
+            table.insert(tools, "delve")
             table.insert(tools, "golangci-lint")
         end
         if vim.fn.executable("python") == 1 then
             table.insert(tools, "ruff")
             table.insert(tools, "pyright")
+            table.insert(tools, "debugpy")
         end
         require("mason-tool-installer").setup({
             ensure_installed = tools,

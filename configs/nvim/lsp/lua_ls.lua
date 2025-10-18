@@ -2,6 +2,7 @@ return {
     cmd = {
         "lua-language-server",
     },
+    capabilities = require("blink.cmp").get_lsp_capabilities(),
     filetypes = {
         "lua",
     },
