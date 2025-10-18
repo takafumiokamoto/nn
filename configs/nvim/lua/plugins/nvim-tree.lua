@@ -7,7 +7,7 @@ return {
         vim.g.loaded_netrwPlugin = 1
         require("nvim-tree").setup({
             view = {
-                width = 30,
+                width = 25,
             },
             renderer = {
                 group_empty = true,
