@@ -99,3 +99,7 @@ $targetPath = resolveAbsPath "configs/alacritty"
 $configPath = "$env:APPDATA/alacritty"
 createSymbolicLink $configPath $targetPath
 
+#staship config
+$targetPath = resolveAbsPath "configs/starship"
+$configPath = "$env:USERPROFILE/.config/starship"
+createSymbolicLink $configPath $targetPath

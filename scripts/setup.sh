@@ -8,7 +8,7 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 function create_symlink() {
     local target=$1
     local path=$2
-    ln -sfn --backup "$target" "$path"
+    ln -sfn "$target" "$path"
 }
 
 function add_dotprofile() {
@@ -57,6 +57,8 @@ create_symlink "${PROJECT_ROOT}/configs/nvim" "$HOME/.config/nvim"
 create_symlink "${PROJECT_ROOT}/configs/claude" "$HOME/.config/claude"
 create_symlink "${PROJECT_ROOT}/configs/wezterm" "$HOME/.config/wezterm"
 create_symlink "${PROJECT_ROOT}/configs/alacritty" "$HOME/.config/alacritty"
-mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.config/Code"
 create_symlink "${PROJECT_ROOT}/configs/vscode" "$HOME/.config/Code/User"
+create_symlink "${PROJECT_ROOT}/configs/starship" "$HOME/.config/starship"
+add_dotprofile "ENV_STARSHIP_CONFIG" "export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml"
 
