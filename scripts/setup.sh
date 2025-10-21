@@ -61,4 +61,4 @@ mkdir -p "$HOME/.config/Code"
 create_symlink "${PROJECT_ROOT}/configs/vscode" "$HOME/.config/Code/User"
 create_symlink "${PROJECT_ROOT}/configs/starship" "$HOME/.config/starship"
 add_dotprofile "ENV_STARSHIP_CONFIG" "export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml"
-
+create_symlink "${PROJECT_ROOT}/configs/codex" "$HOME/.config/codex"
