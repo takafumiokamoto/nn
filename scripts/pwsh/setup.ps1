@@ -100,6 +100,7 @@ $configPath = "$env:APPDATA/alacritty"
 createSymbolicLink $configPath $targetPath
 
 #staship config
+addUserEnv "STARSHIP_CONFIG" "$env:USERPROFILE/.config/starship"
 $targetPath = resolveAbsPath "configs/starship"
 $configPath = "$env:USERPROFILE/.config/starship"
 createSymbolicLink $configPath $targetPath

@@ -6,6 +6,7 @@ return {
         lualine.setup({
             options = {
                 theme = "palenight",
+                --theme = "vague",
             },
         })
     end,
