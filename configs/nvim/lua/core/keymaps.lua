@@ -1,5 +1,5 @@
 -- clipboard
-vim.keymap.set("v", "<C-c>", [[+y]], { desc = "Copy to Clipboard" })
+vim.keymap.set("v", "<C-c>", [["+y]], { desc = "Copy to Clipboard" })
 vim.keymap.set("v", "<C-x>", [[+d]], { desc = "Cut to Clipboard" })
 vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 
@@ -24,8 +24,8 @@ vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab"
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
 --split
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-vim.keymap.set("n", "<leader>sh", "<C-w>h", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>v", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>s", "<C-w>h", { desc = "Split window horizontally" })
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make scplits equal size" })
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 
