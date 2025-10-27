@@ -20,44 +20,74 @@ config.window_decorations = "RESIZE | TITLE"
 
 -- maximize window on startup
 wezterm.on("gui-startup", function(window)
-	local tab, pane, window = mux.spawn_window(cmd or {})
-	local gui_window = window:gui_window()
-	gui_window:maximize()
+    local tab, pane, window = mux.spawn_window(cmd or {})
+    local gui_window = window:gui_window()
+    gui_window:maximize()
 end)
 
 local action = wezterm.action
 config.keys = {
-	{
-		key = "w",
-		mods = "SHIFT|CTRL",
-		action = wezterm.action({ CloseCurrentTab = { confirm = false } }),
-	},
-	{ key = "v", mods = "CTRL", action = wezterm.action({ PasteFrom = "Clipboard" }) },
-	{key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
+    { key = "Enter", mods = "SHIFT", action = wezterm.action({ SendString = "\x1b\r" }) },
+    {
+        key = "w",
+        mods = "SHIFT|CTRL",
+        action = wezterm.action({ CloseCurrentTab = { confirm = false } }),
+    },
+    { key = "v", mods = "CTRL", action = wezterm.action({ PasteFrom = "Clipboard" }) },
+    {
+        key = "%",
+        mods = "SHIFT|CTRL",
+        action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
+    },
+    {
+        key = '"',
+        mods = "SHIFT|CTRL",
+        action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
+    },
+    {
+        key = "H",
+        mods = "SHIFT|CTRL",
+        action = wezterm.action({ ActivatePaneDirection = "Left" }),
+    },
+    {
+        key = "L",
+        mods = "SHIFT|CTRL",
+        action = wezterm.action({ ActivatePaneDirection = "Right" }),
+    },
+    {
+        key = "K",
+        mods = "SHIFT|CTRL",
+        action = wezterm.action({ ActivatePaneDirection = "Up" }),
+    },
+    {
+        key = "J",
+        mods = "SHIFT|CTRL",
+        action = wezterm.action({ ActivatePaneDirection = "Down" }),
+    },
 }
 config.mouse_bindings = {
-	{
-		event = { Down = { streak = 1, button = "Right" } },
-		mods = "NONE",
-		action = wezterm.action_callback(function(window, pane)
-			local has_selection = window:get_selection_text_for_pane(pane) ~= ""
-			if has_selection then
-				window:perform_action(wezterm.action.CopyTo("ClipboardAndPrimarySelection"), pane)
-				window:perform_action(wezterm.action.ClearSelection, pane)
-			else
-				window:perform_action(wezterm.action({ PasteFrom = "Clipboard" }), pane)
-			end
-		end),
-	},
-	{
-		event = { Down = { streak = 1, button = { WheelUp = 1 } } },
-		mods = "NONE",
-		action = action.ScrollByLine(-3),
-	},
-	{
-		event = { Down = { streak = 1, button = { WheelDown = 1 } } },
-		mods = "NONE",
-		action = action.ScrollByLine(3),
-	},
+    {
+        event = { Down = { streak = 1, button = "Right" } },
+        mods = "NONE",
+        action = wezterm.action_callback(function(window, pane)
+            local has_selection = window:get_selection_text_for_pane(pane) ~= ""
+            if has_selection then
+                window:perform_action(wezterm.action.CopyTo("ClipboardAndPrimarySelection"), pane)
+                window:perform_action(wezterm.action.ClearSelection, pane)
+            else
+                window:perform_action(wezterm.action({ PasteFrom = "Clipboard" }), pane)
+            end
+        end),
+    },
+    {
+        event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+        mods = "NONE",
+        action = action.ScrollByLine(-3),
+    },
+    {
+        event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+        mods = "NONE",
+        action = action.ScrollByLine(3),
+    },
 }
 return config
