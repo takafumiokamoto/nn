@@ -185,4 +185,5 @@ References
 
 ⸻
 
+
 If you want, I can package the helpers above into a tiny sjis module (with tests/benchmarks) tailored to your exact operations (cut, pad, split, etc.).
