@@ -3,7 +3,6 @@ return {
         "JoosepAlviste/palenightfall.nvim",
         lazy = false,
         priority = 1000,
-        enabled = true,
         config = function()
             local palenight = require("palenightfall")
             palenight.setup({
@@ -20,8 +19,16 @@ return {
         config = function()
             -- NOTE: you do not need to call setup if you don't want to.
             require("vague").setup({
-                -- optional configuration here
+                italic = true,
             })
+        end,
+    },
+    {
+        "marko-cerovac/material.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("material").setup({})
         end,
     },
 }

@@ -46,22 +46,22 @@ config.keys = {
     },
     {
         key = "H",
-        mods = "SHIFT|CTRL",
+        mods = "ALT|CTRL",
         action = wezterm.action({ ActivatePaneDirection = "Left" }),
     },
     {
         key = "L",
-        mods = "SHIFT|CTRL",
+        mods = "ALT|CTRL",
         action = wezterm.action({ ActivatePaneDirection = "Right" }),
     },
     {
         key = "K",
-        mods = "SHIFT|CTRL",
+        mods = "ALT|CTRL",
         action = wezterm.action({ ActivatePaneDirection = "Up" }),
     },
     {
         key = "J",
-        mods = "SHIFT|CTRL",
+        mods = "ALT|CTRL",
         action = wezterm.action({ ActivatePaneDirection = "Down" }),
     },
 }
