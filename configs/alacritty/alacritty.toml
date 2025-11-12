@@ -2,12 +2,13 @@
 live_config_reload = true
 
 [terminal]
-shell = { program = "wsl.exe", args = ["-d", "Ubuntu-24.04", "--cd", "~/"] }
+#shell = { program = "wsl.exe", args = ["-d", "Ubuntu-24.04", "--cd", "~/"] }
+shell = {program = "pwsh.exe", args = ["-NoExit", "-Command", "Set-Location ~"]}
 
 [window]
 padding = { x = 10, y = 10}
 decorations = "Full"
-startup_mode = "Windowed"
+startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
 title = "Alacritty"
 dynamic_title = false

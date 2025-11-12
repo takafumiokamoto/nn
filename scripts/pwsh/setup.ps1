@@ -15,8 +15,12 @@ function addUserEnv($key, $value) {
 }
 
 function addEnvPath($path) {
-    "Add $path to PATH"
     $currentPath = [System.Environment]::GetEnvironmentVariable("PATH", "User")
+    if ($currentPath.Contains($path)) {
+        Write-Host "PATH: $path exits. skip."
+        return
+    }
+    "Add $path to PATH"
     [System.Environment]::SetEnvironmentVariable("PATH", "$currentPath;$path", "User")
     reloadEnvPath
 }
@@ -71,8 +75,8 @@ checkAndInstallPackage $packages
 addUserEnv "AQUA_GLOBAL_CONFIG" (resolveAbsPath ".\aqua.yaml")
 addUserEnv "AQUA_PROGRESS_BAR" "true"
 addEnvPath "$env:LOCALAPPDATA\aquaproj-aqua\bin"
-aqua install -l -a
-aqua install -a --tags essential
+aqua install -a
+reloadEnvPath
 
 # nvim config
 $targetPath = resolveAbsPath "configs/nvim"

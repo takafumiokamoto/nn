@@ -9,8 +9,8 @@ config.color_scheme = "Palenight (Gogh)"
 config.hide_tab_bar_if_only_one_tab = true
 config.audible_bell = "Disabled"
 -- config.default_domain = 'WSL:Debian'
---config.default_domain = "WSL:Ubuntu-24.04"
-config.default_prog = { "pwsh.exe" }
+config.default_domain = "WSL:Ubuntu-24.04"
+-- config.default_prog = { "pwsh.exe" }
 config.window_background_opacity = 1
 -- config.win32_system_backdrop = 'Acrylic'
 -- config.win32_system_backdrop = 'Tabbed'
@@ -91,7 +91,8 @@ config.mouse_bindings = {
     },
 }
 
-local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
+package.path = [[C:\wezterm-plugins\bar.wezterm\plugin\?.lua;C:\wezterm-plugins\bar.wezterm\plugin\?\init.lua]] .. package.path
+local bar = wezterm.plugin.require("file:///C:/wezterm-plugins/bar.wezterm")
 bar.apply_to_config(config, {
     position = "top",
     max_width = 32,
