@@ -1,5 +1,6 @@
 return {
     "nvzone/floaterm",
+    enabled = false,
     dependencies = "nvzone/volt",
     cmd = "FloatermToggle",
     keys = {

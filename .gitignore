@@ -3,3 +3,5 @@ configs/vscode/*
 configs/vscode/!settings.json
 configs/vscode/!keybindings.json
 configs/vscode/!extensions.txt
+# lazy.nvim
+lazy-lock.json
