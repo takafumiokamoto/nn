@@ -1,0 +1,153 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Part 2: App Runner Service with WAF IP Restriction and Secrets Manager'
+
+Parameters:
+  EnvName:
+    Type: String
+    Default: 'go-mongo-poc'
+  ImageTag:
+    Type: String
+    Default: 'latest'
+  DbUser:
+    Type: String
+    Default: 'root'
+  AllowedIPs:
+    Type: CommaDelimitedList
+    Description: "List of IPv4 CIDRs to allow (e.g., 203.0.113.5/32, 198.51.100.0/24). NAT Gateway IP is added automatically."
+
+Resources:
+  # ==========================================
+  # IAM Roles
+  # ==========================================
+  AppRunnerInstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - build.apprunner.amazonaws.com
+                - tasks.apprunner.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: AccessSecrets
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: secretsmanager:GetSecretValue
+                Resource: !ImportValue 
+                  Fn::Sub: '${EnvName}-DBSecretArn'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSAppRunnerServicePolicyForECRAccess
+
+  # ==========================================
+  # App Runner VPC Connector
+  # ==========================================
+  VpcConnector:
+    Type: AWS::AppRunner::VpcConnector
+    Properties:
+      Subnets:
+        - Fn::ImportValue: !Sub '${EnvName}-PrivateSubnet1'
+        - Fn::ImportValue: !Sub '${EnvName}-PrivateSubnet2'
+      SecurityGroups:
+        - Fn::ImportValue: !Sub '${EnvName}-AppRunnerSG'
+      VpcConnectorName: !Sub '${EnvName}-connector'
+
+  # ==========================================
+  # App Runner Service
+  # ==========================================
+  AppRunnerService:
+    Type: AWS::AppRunner::Service
+    Properties:
+      ServiceName: !Sub '${EnvName}-service'
+      SourceConfiguration:
+        AuthenticationConfiguration:
+          AccessRoleArn: !GetAtt AppRunnerInstanceRole.Arn
+        ImageRepository:
+          ImageIdentifier: 
+            !Join 
+              - ':'
+              - - Fn::ImportValue: !Sub '${EnvName}-ECRUri'
+                - !Ref ImageTag
+          ImageRepositoryType: ECR
+          ImageConfiguration:
+            Port: "3000"
+            RuntimeEnvironmentVariables:
+              - Name: DB_HOST
+                Value: !ImportValue 
+                  Fn::Sub: '${EnvName}-DBEndpoint'
+              - Name: DB_PORT
+                Value: !ImportValue 
+                  Fn::Sub: '${EnvName}-DBPort'
+              - Name: DB_USER
+                Value: !Ref DbUser
+            RuntimeEnvironmentSecrets:
+              - Name: DB_PASSWORD
+                ValueArn: !Join
+                  - ':'
+                  - - !ImportValue 
+                        Fn::Sub: '${EnvName}-DBSecretArn'
+                    - 'password'
+                    - '::'
+
+      NetworkConfiguration:
+        EgressConfiguration:
+          EgressType: VPC
+          VpcConnectorArn: !Ref VpcConnector
+
+  # ==========================================
+  # WAF (Web Application Firewall)
+  # ==========================================
+  AllowedIPSet:
+    Type: AWS::WAFv2::IPSet
+    Properties:
+      Name: !Sub '${EnvName}-allowed-ips'
+      Scope: REGIONAL
+      IPAddressVersion: IPV4
+      Addresses: 
+        # Combine the user-provided list with the NAT Gateway IP (need suffix /32 for single IP)
+        !Split
+          - ','
+          - !Join
+              - ','
+              - - !Join ['', [!ImportValue {'Fn::Sub': '${EnvName}-NatGatewayIP'}, '/32']]
+                - !Join [',', !Ref AllowedIPs]
+      Description: "Allowed IPs including NAT Gateway and Office IPs"
+
+  WebACL:
+    Type: AWS::WAFv2::WebACL
+    Properties:
+      Name: !Sub '${EnvName}-web-acl'
+      Scope: REGIONAL
+      DefaultAction:
+        Block: {} # Block everything by default
+      VisibilityConfig:
+        SampledRequestsEnabled: true
+        CloudWatchMetricsEnabled: true
+        MetricName: !Sub '${EnvName}-web-acl'
+      Rules:
+        - Name: AllowSpecificIPs
+          Priority: 0
+          Statement:
+            IPSetReferenceStatement:
+              Arn: !GetAtt AllowedIPSet.Arn
+          Action:
+            Allow: {}
+          VisibilityConfig:
+            SampledRequestsEnabled: true
+            CloudWatchMetricsEnabled: true
+            MetricName: AllowSpecificIPs
+
+  WebACLAssociation:
+    Type: AWS::WAFv2::WebACLAssociation
+    Properties:
+      ResourceArn: !GetAtt AppRunnerService.ServiceArn
+      WebACLArn: !GetAtt WebACL.Arn
+
+Outputs:
+  ServiceUrl:
+    Value: !GetAtt AppRunnerService.ServiceUrl
+    Description: URL of the App Runner service
