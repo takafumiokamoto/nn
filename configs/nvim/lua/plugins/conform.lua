@@ -6,6 +6,11 @@ return {
                 lua = { "stylua" },
                 go = { "gofmt" },
                 python = { "ruff" },
+                rust = { "rustfmt" },
+                c = { "clang-format" },
+                cpp = { "clang-format" },
+                json = { "prettier" },
+                yaml = { "prettier" },
             },
             format_on_save = true,
         })

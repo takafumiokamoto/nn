@@ -25,7 +25,7 @@ vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current bu
 
 --split
 vim.keymap.set("n", "<leader>v", "<C-w>v", { desc = "Split window vertically" })
-vim.keymap.set("n", "<leader>s", "<C-w>h", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Split window horizontally" })
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make scplits equal size" })
 vim.keymap.set("n", "<Right>", "<C-w><")
 vim.keymap.set("n", "<Left>", "<C-w>>")

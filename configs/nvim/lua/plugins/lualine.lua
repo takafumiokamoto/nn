@@ -5,8 +5,8 @@ return {
         local lualine = require("lualine")
         lualine.setup({
             options = {
-                -- theme = "palenight",
-                theme = "vague",
+                theme = "palenight",
+                -- theme = "vague",
             },
         })
     end,

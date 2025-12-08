@@ -7,6 +7,11 @@ return {
             ensure_installed = {
                 "lua",
                 "go",
+                "python",
+                "c",
+                "cpp",
+                "yaml",
+                "json",
             },
             sync_install = true,
             auto_install = true,

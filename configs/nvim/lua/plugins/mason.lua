@@ -8,13 +8,15 @@ return {
             "lua-language-server",
             "stylua",
             "prettier",
+            "clangd",
+            "clang-format",
         }
         if vim.fn.executable("go") == 1 then
             table.insert(tools, "gopls")
             table.insert(tools, "delve")
             table.insert(tools, "golangci-lint")
         end
-        if vim.fn.executable("python") == 1 then
+        if vim.fn.executable("uv") == 1 then
             table.insert(tools, "ruff")
             table.insert(tools, "pyright")
             table.insert(tools, "debugpy")
@@ -24,7 +26,7 @@ return {
             auto_update = true,
             run_on_start = true,
             start_delay = 5000,
-            debounce_hours = 20,
+            debounce_hours = 1,
         })
     end,
 }
