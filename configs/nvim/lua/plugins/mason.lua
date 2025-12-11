@@ -5,7 +5,7 @@ return {
     },
     config = function()
         local tools = {
-            "lua-language-server@3.15.0",
+            "lua-language-server",
             "stylua",
             "prettier",
             "clangd",
