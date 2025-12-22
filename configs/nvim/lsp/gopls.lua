@@ -7,7 +7,7 @@ return {
         gopls = {
             gofumpt = true,
             codelenses = {
-                gc_details = false,
+                gc_details = true,
                 generate = true,
                 regenerate_cgo = true,
                 run_govulncheck = true,
@@ -17,13 +17,13 @@ return {
                 vendor = true,
             },
             hints = {
-                assignVariableTypes = false,
-                compositeLiteralFields = false,
-                compositeLiteralTypes = false,
-                constantValues = false,
-                functionTypeParameters = false,
-                parameterNames = false,
-                rangeVariableTypes = false,
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
             },
             analyses = {
                 nilness = true,

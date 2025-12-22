@@ -7,7 +7,7 @@ vim.g.neovide_title_text_color = mainColor
 vim.g.neovide_floating_blur_amount_x = 2.0
 vim.g.neovide_floating_blur_amount_y = 2.0
 vim.g.neovide_input_ime = true
-local animation = true
+local animation = false
 if animation then
     vim.g.neovide_cursor_animate_in_insert_mode = true
     vim.g.neovide_cursor_animate_command_line = true
