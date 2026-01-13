@@ -1,4 +1,4 @@
-vim.o.guifont = "CaskaydiaMono NFM:i:h11"
+vim.o.guifont = "CaskaydiaMono NFM:i:h10"
 vim.keymap.set({ "n", "v" }, "<C-v>", [["+p]])
 vim.keymap.set({ "i", "c" }, "<C-v>", "<C-r>+")
 local mainColor = string.format("%x", vim.api.nvim_get_hl(0, { id = vim.api.nvim_get_hl_id_by_name("Normal") }).bg)

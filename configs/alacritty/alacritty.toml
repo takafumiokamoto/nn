@@ -23,8 +23,10 @@ background = "#292D3E"
 [cursor]
 style = { shape = "Block", blinking = "On"}
 
-[keyboard]
-bindings = [{key = "V", mods = "Control", action = "Paste"}]
+[keyboard.bindings]
+{ key = "Tab", mods = "Control", chars = "\\x1b[27;5;9~" }
+{ key = "Tab", mods = "Control|Shift", chars = "\\x1b[27;6;9~" }
+{ key = "V", mods = "Control", action = "Paste"}
 
 [mouse]
 bindings = [{mouse = "Right", mods = "Control", action = "Paste"}]
