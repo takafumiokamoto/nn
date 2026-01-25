@@ -14,6 +14,37 @@ return {
                 detached = vim.fn.has("win32") == 0,
             },
         })
+
+        -- C# / .NET configuration
+        dap.adapters.coreclr = {
+            type = "executable",
+            command = "netcoredbg",
+            args = { "--interpreter=vscode" },
+        }
+        dap.configurations.cs = {
+            {
+                type = "coreclr",
+                name = "Launch",
+                request = "launch",
+                program = function()
+                    return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
+                end,
+            },
+        }
+
+        -- PHP configuration (requires Xdebug)
+        dap.adapters.php = {
+            type = "executable",
+            command = "php-debug-adapter",
+        }
+        dap.configurations.php = {
+            {
+                type = "php",
+                request = "launch",
+                name = "Listen for Xdebug",
+                port = 9003,
+            },
+        }
         vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
         vim.keymap.set("n", "<leader>gb", dap.run_to_cursor)
 

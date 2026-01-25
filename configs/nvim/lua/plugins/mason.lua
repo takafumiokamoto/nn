@@ -21,6 +21,19 @@ return {
             table.insert(tools, "pyright")
             table.insert(tools, "debugpy")
         end
+        if vim.fn.executable("node") == 1 then
+            table.insert(tools, "typescript-language-server")
+        end
+        if vim.fn.executable("dotnet") == 1 then
+            table.insert(tools, "csharp-language-server")
+            table.insert(tools, "csharpier")
+            table.insert(tools, "netcoredbg")
+        end
+        if vim.fn.executable("php") == 1 then
+            table.insert(tools, "intelephense")
+            table.insert(tools, "php-cs-fixer")
+            table.insert(tools, "php-debug-adapter")
+        end
         require("mason-tool-installer").setup({
             ensure_installed = tools,
             auto_update = true,

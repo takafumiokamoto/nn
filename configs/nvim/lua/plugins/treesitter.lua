@@ -12,6 +12,8 @@ return {
                 "cpp",
                 "yaml",
                 "json",
+                "php",
+                "c_sharp",
             },
             sync_install = true,
             auto_install = true,
