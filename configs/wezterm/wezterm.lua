@@ -8,22 +8,29 @@ config.font = wezterm.font("CaskaydiaMono NFM", { italic = true })
 config.color_scheme = "Palenight (Gogh)"
 config.hide_tab_bar_if_only_one_tab = true
 config.audible_bell = "Disabled"
+config.use_ime = true
 -- config.default_domain = 'WSL:Debian'
--- config.default_domain = "WSL:Ubuntu-24.04"
-config.default_prog = { "pwsh.exe" }
+config.default_domain = "WSL:Ubuntu-24.04"
+--config.default_prog = { "pwsh.exe" }
 config.window_background_opacity = 1
--- config.win32_system_backdrop = 'Acrylic'
--- config.win32_system_backdrop = 'Tabbed'
--- config.win32_system_backdrop = 'Mica'
--- config.window_decorations = "RESIZE"
-config.window_decorations = "RESIZE | TITLE"
-
+config.win32_system_backdrop = "Acrylic"
+config.win32_system_backdrop = "Tabbed"
+config.win32_system_backdrop = "Mica"
+config.window_decorations = "RESIZE"
+config.window_decorations = "RESIZE"
+--config.window_decorations = "RESIZE | TITLE"
 -- maximize window on startup
 wezterm.on("gui-startup", function(window)
     local tab, pane, window = mux.spawn_window(cmd or {})
     local gui_window = window:gui_window()
     gui_window:maximize()
 end)
+config.window_padding = {
+    left = 2,
+    right = 2,
+    top = 5,
+    bottom = 0,
+}
 
 local action = wezterm.action
 config.keys = {
@@ -91,7 +98,8 @@ config.mouse_bindings = {
     },
 }
 
-package.path = [[C:\wezterm-plugins\bar.wezterm\plugin\?.lua;C:\wezterm-plugins\bar.wezterm\plugin\?\init.lua]] .. package.path
+package.path = [[C:\wezterm-plugins\bar.wezterm\plugin\?.lua;C:\wezterm-plugins\bar.wezterm\plugin\?\init.lua]]
+    .. package.path
 local bar = wezterm.plugin.require("file:///C:/wezterm-plugins/bar.wezterm")
 bar.apply_to_config(config, {
     position = "top",
@@ -134,7 +142,7 @@ bar.apply_to_config(config, {
             enabled = false,
         },
         clock = {
-            enabled = false,
+            enabled = true,
         },
         cwd = {
             enabled = false,

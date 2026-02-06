@@ -7,9 +7,8 @@ return {
         local tools = {
             "lua-language-server",
             "stylua",
-            "prettier",
-            "clangd",
-            "clang-format",
+            -- "clangd",
+            -- "clang-format",
         }
         if vim.fn.executable("go") == 1 then
             table.insert(tools, "gopls")
@@ -18,8 +17,14 @@ return {
         end
         if vim.fn.executable("uv") == 1 then
             table.insert(tools, "ruff")
-            table.insert(tools, "pyright")
+            table.insert(tools, "ty")
             table.insert(tools, "debugpy")
+        end
+        if vim.fn.executable("npm") == 1 then
+            table.insert(tools, "prettier")
+            table.insert(tools, "typescript-language-server")
+            table.insert(tools, "tailwindcss-language-server")
+            table.insert(tools, "js-debug-adapter")
         end
         require("mason-tool-installer").setup({
             ensure_installed = tools,

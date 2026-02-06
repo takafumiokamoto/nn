@@ -9,22 +9,23 @@
 #   - all
 
 registries:
-- type: standard
-  ref: v4.454.0 # renovate: depName=aquaproj/aqua-registry
+  - type: standard
+    ref: v4.466.1 # renovate: depName=aquaproj/aqua-registry
 
 packages:
-- name: go-task/task@v3.46.4
-  tags: ["essential"]
-- name: BurntSushi/ripgrep@15.1.0
-  tags: ["essential"]
-- name: ziglang/zig@0.15.2
-  tags: ["essential"]
-- name: junegunn/fzf@v0.67.0
-  tags: ["essential"]
-- name: cli/cli@v2.83.2
-- name: aws/aws-cli@2.32.33
-- name: hadolint/hadolint@v2.14.0
-- name: aws-cloudformation/rain@v1.24.2
-- name: hashicorp/terraform@v1.14.3
-- name: jesseduffield/lazygit@v0.58.1
-- name: openai/codex@rust-v0.80.0
+  - name: go-task/task@v3.48.0
+    tags: ["essential"]
+  - name: BurntSushi/ripgrep@15.1.0
+    tags: ["essential"]
+  - name: ziglang/zig@0.15.2
+    tags: ["essential"]
+  - name: junegunn/fzf@v0.67.0
+    tags: ["essential"]
+  - name: cli/cli@v2.86.0
+  - name: aws/aws-cli@2.33.16
+  - name: hadolint/hadolint@v2.14.0
+  - name: aws-cloudformation/rain@v1.24.2
+  - name: hashicorp/terraform@v1.14.4
+  - name: openai/codex@rust-v0.98.0
+    tags: ["ai"]
+  - name: starship/starship@v1.24.2

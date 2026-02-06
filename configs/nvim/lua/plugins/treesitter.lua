@@ -1,5 +1,8 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     event = { "BufReadPost", "BufNewFile" },
     build = ":TSUpdate",
     config = function()
@@ -12,6 +15,13 @@ return {
                 "cpp",
                 "yaml",
                 "json",
+                "typescript",
+                "javascript",
+                "tsx",
+                "toml",
+                "php",
+                "css",
+                "html",
             },
             sync_install = true,
             auto_install = true,
