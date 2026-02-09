@@ -6,6 +6,9 @@ return {
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
         require("nvim-tree").setup({
+            update_focused_file = {
+                enable = true,
+            },
             view = {
                 width = 25,
             },
@@ -21,6 +24,18 @@ return {
             },
             git = {
                 ignore = false,
+            },
+            diagnostics = {
+                enable = true,
+                show_on_dirs = true,
+                show_on_open_dirs = true,
+                debounce_delay = 50,
+                icons = {
+                    hint = "H",
+                    info = "I",
+                    warning = "W",
+                    error = "E",
+                },
             },
         })
         vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" })
