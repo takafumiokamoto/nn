@@ -1,19 +1,23 @@
 [tools]
-# Langueges
+# Go
 go = "latest"
 "go:golang.org/x/tools/gopls" = {version = "latest", depends = "go"}
+"go:github.com/go-delve/delve/cmd/dlv" = {version = "latest", depends = "go"}
+# node
 node = "latest"
 "npm:@vtsls/language-server" = {version = "latest", depends = "node"}
+pnpm = "latest"
+oxfmt = "latest"
+# Python
 python = "latest"
+uv = "latest"
+# Zig
 zig = "latest"
-
-# language tools
+# Lua
 lua-language-server = "latest"
 stylua = "latest"
-oxfmt = "latest"
-uv = "latest"
-tree-sitter = "latest"
 
+tree-sitter = "latest"
 codex = "latest"
 fd = "latest"
 fzf = "latest"
@@ -21,3 +25,4 @@ neovim = "latest"
 ripgrep = "latest"
 starship = "latest"
 gh = "latest"
+aws-cli = { version = "latest", symlink_bins = "true" }
