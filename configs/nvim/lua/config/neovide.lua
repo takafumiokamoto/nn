@@ -1,7 +1,8 @@
-vim.o.guifont = "Moralerspace Xenon JPDOC:b:i:h9"
+vim.o.guifont = "Moralerspace Xenon JPDOC:b:i:h12"
 vim.opt.linespace = -1
 vim.keymap.set({ "n", "v" }, "<C-v>", [["+p]])
 vim.keymap.set({ "i", "c" }, "<C-v>", "<C-r>+")
+vim.g.neovide_fullscreen = false
 local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
 local main_color = normal_hl.bg and string.format("%x", normal_hl.bg) or "282c34"
 vim.g.neovide_hide_mouse_when_typing = true
@@ -11,11 +12,11 @@ vim.g.neovide_title_text_color = main_color
 vim.g.neovide_floating_blur_amount_x = 2.0
 vim.g.neovide_floating_blur_amount_y = 2.0
 vim.g.neovide_input_ime = true
---vim.g.neovide_fullscreen = true
 vim.g.neovide_padding_top = 0
 vim.g.neovide_padding_bottom = 0
 vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
+vim.g.neovide_progress_bar_enabled = false
 local animation = os.getenv("NEOVIDE_ANIMATION_ENABLE")
 if animation == "1" then
     vim.g.neovide_cursor_animate_in_insert_mode = true

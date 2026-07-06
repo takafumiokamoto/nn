@@ -3,14 +3,17 @@
 ## run
 
 Windows
+
 ```pwsh
 # run as admin
-powershell --executionpolicy bypass .\scripts\enable-devmode.ps1
+powershell --executionpolicy bypass .\scripts\pwsh\enable-devmode.ps1
 # run as user
-powershell --executionpolicy bypass .\entrypoints\windows.ps1
+powershell --executionpolicy bypass .\install\windows.ps1
 ```
+
 Linux, Mac
+
 ```shell
-chmod +x entrypoints\linux.sh
-.\entrypoints\linux.sh
+chmod +x install/unix.sh
+./install/unix.sh
 ```

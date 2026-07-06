@@ -1,11 +1,31 @@
+[settings]
+experimental = true
+
+[bootstrap.packages]
+"apk:zsh" = "latest"
+"apt:zsh" = "latest"
+"dnf:zsh" = "latest"
+"pacman:zsh" = "latest"
+# C compiler
+"apk:build-base" = "latest"
+"apt:build-essential" = "latest"
+"dnf:gcc" = "latest"
+"pacman:gcc" = "latest"
+
+[bootstrap.user]
+login_shell = "/bin/zsh"
+
+[bootstrap.mise_shell_activate]
+zsh = true
+
 [tools]
 # Go
 go = "latest"
-"go:golang.org/x/tools/gopls" = {version = "latest", depends = "go"}
-"go:github.com/go-delve/delve/cmd/dlv" = {version = "latest", depends = "go"}
+"go:golang.org/x/tools/gopls" = { version = "latest", depends = "go" }
+"go:github.com/go-delve/delve/cmd/dlv" = { version = "latest", depends = "go" }
 # node
 node = "latest"
-"npm:@vtsls/language-server" = {version = "latest", depends = "node"}
+"npm:@vtsls/language-server" = { version = "latest", depends = "node" }
 pnpm = "latest"
 oxfmt = "latest"
 # Python
@@ -13,12 +33,15 @@ python = "latest"
 uv = "latest"
 # Zig
 zig = "latest"
+# Rust
+rust = "latest"
 # Lua
 lua-language-server = "latest"
 stylua = "latest"
 
 tree-sitter = "latest"
 codex = "latest"
+"github:earendil-works/pi" = "latest"
 fd = "latest"
 fzf = "latest"
 neovim = "latest"
@@ -26,3 +49,19 @@ ripgrep = "latest"
 starship = "latest"
 gh = "latest"
 aws-cli = { version = "latest", symlink_bins = "true" }
+age = "latest"
+
+[dotfiles]
+"~/.config/mise" = { source = ".", mode = "symlink" }
+"~/.config/nvim" = { source = "../nvim", mode = "symlink" }
+"~/.config/wezterm" = { source = "../wezterm", mode = "symlink" }
+"~/.codex/AGENTS.md" = { source = "../codex/AGENTS.md", mode = "symlink" }
+"~/.config/alacritty" = { source = "../alacritty", mode = "symlink" }
+"~/.config/starship" = { source = "../starship", mode = "symlink" }
+"~/.zshenv" = { source = "../zsh/.zshenv", mode = "symlink" }
+"~/.aliases.zsh" = { source = "../zsh/.aliases.zsh", mode = "symlink" }
+"~/.zshrc/aliases" = { block = '''
+source "$HOME/.aliases.zsh"
+''' }
+"~/.zshrc/starship" = { block = 'eval "$(starship init zsh)"' }
+

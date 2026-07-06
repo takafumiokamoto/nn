@@ -1,6 +1,7 @@
 require("config.options")
 require("config.keymaps")
 require("config.lazy")
+require("config.autocmd")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("gopls")
 vim.lsp.enable("vtsls")

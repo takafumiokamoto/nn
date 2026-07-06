@@ -1,13 +1,13 @@
 local wezterm = require("wezterm")
-local mux = wezterm.mux
 local config = wezterm.config_builder()
 
-config.font_size = 11
+config.font_size = 12
 config.font_dirs = {
     wezterm.config_dir .. "/fonts",
 }
 config.font = wezterm.font_with_fallback({
     { family = "Moralerspace Neon JPDOC", italic = true, weight = "Bold" },
+    "Symbols Nerd Font Mono",
 })
 config.color_scheme = "Palenight (Gogh)"
 config.hide_tab_bar_if_only_one_tab = true
@@ -17,12 +17,6 @@ config.use_ime = true
 config.default_domain = "WSL:Ubuntu-26.04"
 --config.default_prog = { "pwsh.exe" }
 config.window_background_opacity = 1
--- maximize window on startup
-wezterm.on("gui-startup", function(window)
-    local tab, pane, window = mux.spawn_window(cmd or {})
-    local gui_window = window:gui_window()
-    gui_window:maximize()
-end)
 config.window_padding = {
     left = 2,
     right = 2,

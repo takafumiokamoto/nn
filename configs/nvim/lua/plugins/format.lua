@@ -11,6 +11,7 @@ return {
             json = { "oxfmt" },
             yaml = { "oxfmt" },
             html = { "oxfmt" },
+            toml = { "oxfmt" },
             markdown = { "oxfmt" },
         },
         format_on_save = {
