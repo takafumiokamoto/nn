@@ -26,6 +26,7 @@ go = "latest"
 # node
 node = "latest"
 "npm:@vtsls/language-server" = { version = "latest", depends = "node" }
+"npm:vscode-json-languageserver" = "latest"
 pnpm = "latest"
 oxfmt = "latest"
 # Python

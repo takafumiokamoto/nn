@@ -35,13 +35,13 @@
         {
             "before": ["j", "k"],
             // "after": ["<Esc>", ":", "w", "<CR>"],
-            "after": ["<Esc>"],
+            "after": ["<Esc>"]
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": ["<C-s>"],
-            "after": [":", "w", "<CR>"],
+            "after": [":", "w", "<CR>"]
         },
         {
             "before": ["<leader>", "d"],
