@@ -39,10 +39,12 @@ rust = "latest"
 # Lua
 lua-language-server = "latest"
 stylua = "latest"
+# shell
+"npm:bash-language-server" = "latest"
+shfmt = "latest"
 
 tree-sitter = "latest"
 codex = "latest"
-"github:earendil-works/pi" = "latest"
 fd = "latest"
 fzf = "latest"
 neovim = "latest"

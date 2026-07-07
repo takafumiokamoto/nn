@@ -13,6 +13,8 @@ return {
             html = { "oxfmt" },
             toml = { "oxfmt" },
             markdown = { "oxfmt" },
+            sh = { "shfmt" },
+            bash = { "shfmt" },
         },
         format_on_save = {
             timeout_ms = 10000,

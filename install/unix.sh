@@ -19,4 +19,13 @@ else
 fi
 
 export MISE_GLOBAL_CONFIG_FILE="${MISE_CONFIG}"
+if [[ -f "${PROJECT_ROOT}/.env" ]]; then
+    export MISE_ENV_FILE="${PROJECT_ROOT}/.env"
+    tmp=$(mktemp)
+    "${MISE_BIN}" env -s zsh | awk '/^export DOTFILE_ENV_/ { print }' > "$tmp"
+    mv "$tmp" "$HOME/.env.dotfile"
+else
+    rm -f $HOME/.env.dotfile
+fi
+
 "${MISE_BIN}" bootstrap --yes --force-dotfiles

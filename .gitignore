@@ -2,3 +2,5 @@
 *.ttf
 # lazy.nvim
 lazy-lock.json
+# env
+.env
