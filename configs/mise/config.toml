@@ -44,7 +44,6 @@ stylua = "latest"
 shfmt = "latest"
 
 tree-sitter = "latest"
-codex = "latest"
 fd = "latest"
 fzf = "latest"
 neovim = "latest"
@@ -53,6 +52,11 @@ starship = "latest"
 gh = "latest"
 aws-cli = { version = "latest", symlink_bins = "true" }
 age = "latest"
+herdr = "latest"
+"aqua:openai/codex" = { version = "latest", minimum_release_age = "0d" }
+rust-analyzer = "latest"
+golangci-lint = "latest"
+terraform = "latest"
 
 [dotfiles]
 "~/.config/mise" = { source = ".", mode = "symlink" }
