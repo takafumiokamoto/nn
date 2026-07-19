@@ -57,6 +57,7 @@ herdr = "latest"
 rust-analyzer = "latest"
 golangci-lint = "latest"
 terraform = "latest"
+ty = "latest"
 
 [dotfiles]
 "~/.config/mise" = { source = ".", mode = "symlink" }

@@ -1,22 +1,33 @@
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 local config = wezterm.config_builder()
 
-config.font_size = 12
+config.font_size = 11
 config.font_dirs = {
     wezterm.config_dir .. "/fonts",
 }
 config.font = wezterm.font_with_fallback({
     { family = "Moralerspace Neon JPDOC", italic = true, weight = "Bold" },
-    "Symbols Nerd Font Mono",
 })
-config.color_scheme = "Palenight (Gogh)"
+--config.color_scheme = "Palenight (Gogh)"
+ config.color_scheme = "DoomOne"
 config.hide_tab_bar_if_only_one_tab = true
 config.audible_bell = "Disabled"
 config.notification_handling = "NeverShow"
 config.use_ime = true
+-- config.default_domain = 'WSL:Debian'
 config.default_domain = "WSL:Ubuntu-26.04"
 --config.default_prog = { "pwsh.exe" }
 config.window_background_opacity = 1
+config.automatically_reload_config = true
+config.cursor_blink_rate = 0
+config.default_cursor_style = 'SteadyBlock'
+-- maximize window on startup
+wezterm.on("gui-startup", function(window)
+    local tab, pane, window = mux.spawn_window(cmd or {})
+    local gui_window = window:gui_window()
+    gui_window:maximize()
+end)
 config.window_padding = {
     left = 2,
     right = 2,
@@ -61,6 +72,34 @@ config.keys = {
         key = "J",
         mods = "SHIFT|CTRL",
         action = wezterm.action({ ActivatePaneDirection = "Down" }),
+    },
+    {
+        key = "LeftArrow",
+        mods = "SHIFT",
+        action = wezterm.action({ AdjustPaneSize = { "Left", 5 } }),
+    },
+    {
+        key = "RightArrow",
+        mods = "SHIFT",
+        action = wezterm.action({ AdjustPaneSize = { "Right", 5 } }),
+    },
+    {
+        key = "UpArrow",
+        mods = "SHIFT",
+        action = wezterm.action({ AdjustPaneSize = { "Up", 5 } }),
+    },
+    {
+        key = "DownArrow",
+        mods = "SHIFT",
+        action = wezterm.action({ AdjustPaneSize = { "Down", 5 } }),
+    },
+    {
+        key = "PageDown",
+        action = wezterm.action({ ScrollByPage = 0.25 }),
+    },
+    {
+        key = "PageUp",
+        action = wezterm.action({ ScrollByPage = -0.25 }),
     },
 }
 config.mouse_bindings = {

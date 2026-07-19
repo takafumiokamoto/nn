@@ -8,9 +8,9 @@ return {
     config = function()
         require("oil").setup({
             columns = {
-                -- "permissions",
-                -- "size",
-                -- "mtime",
+                "permissions",
+                "size",
+                "mtime",
                 "icon",
             },
             skip_confirm_for_simple_edits = false,

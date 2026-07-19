@@ -31,7 +31,6 @@ vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current spli
 --buffer
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Go to previous buffer" })
-vim.keymap.set("n", "<leader>bd", "<cmd>bp|bd#<CR>", { desc = "Close buffer" })
 
 --miscellaneous
 vim.keymap.set("i", "jk", "<ESC>", { desc = "" })
