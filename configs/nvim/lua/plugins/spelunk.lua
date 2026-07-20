@@ -7,11 +7,11 @@ return {
         config = function()
             require("spelunk").setup({
                 base_mappings = {
-                    toggle = "<leader>mt",
+                    toggle = "<leader>mm",
                     add = "<leader>ma",
                     delete = "<leader>md",
-                    next_bookmark = "<leader>mn",
-                    prev_bookmark = "<leader>mp",
+                    next_bookmark = "<leader>.",
+                    prev_bookmark = "<leader>,",
                     search_bookmarks = "<leader>mf",
                     search_current_bookmarks = "<leader>mc",
                     search_stacks = "<leader>ms",

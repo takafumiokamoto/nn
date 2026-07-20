@@ -42,22 +42,6 @@ return {
         vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Debug: Toggle UI" })
         vim.keymap.set("n", "<leader>dx", dap.terminate, { desc = "Debug: Terminate" })
 
-        local go_keymaps = vim.api.nvim_create_augroup("dap_go_keymaps", { clear = true })
-        vim.api.nvim_create_autocmd("FileType", {
-            group = go_keymaps,
-            pattern = "go",
-            callback = function(event)
-                vim.keymap.set("n", "<leader>dt", dap_go.debug_test, {
-                    buffer = event.buf,
-                    desc = "Debug: Nearest Go test",
-                })
-                vim.keymap.set("n", "<leader>dT", dap_go.debug_last_test, {
-                    buffer = event.buf,
-                    desc = "Debug: Last Go test",
-                })
-            end,
-        })
-
         dap.listeners.before.attach.dapui_config = function()
             dapui.open()
         end
