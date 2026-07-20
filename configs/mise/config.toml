@@ -64,7 +64,6 @@ ty = "latest"
 "~/.config/nvim" = { source = "../nvim", mode = "symlink" }
 "~/.config/wezterm" = { source = "../wezterm", mode = "symlink" }
 "~/.codex/AGENTS.md" = { source = "../codex/AGENTS.md", mode = "symlink" }
-"~/.config/alacritty" = { source = "../alacritty", mode = "symlink" }
 "~/.config/starship" = { source = "../starship", mode = "symlink" }
 "~/.zshenv" = { source = "../zsh/.zshenv", mode = "symlink" }
 "~/.aliases.zsh" = { source = "../zsh/.aliases.zsh", mode = "symlink" }

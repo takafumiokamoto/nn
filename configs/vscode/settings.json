@@ -4,7 +4,6 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.colorTheme": "Tokyo Night Storm",
     "editor.inlineSuggest.enabled": true,
-    // "window.menuBarVisibility": "classic",
     "workbench.activityBar.location": "bottom",
     "window.commandCenter": true,
     "workbench.statusBar.visible": true,
@@ -12,8 +11,6 @@
     "bladeFormatter.format.sortTailwindcssClasses": true,
     "php.debug.executablePath": "C:\\Program Files\\php\\php-8.2.6-Win32-vs16-x64\\php.exe",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    // "files.autoSave": "onFocusChange",
-    // "editor.formatOnSave": true,
     "editor.formatOnSave": false,
     "editor.lineNumbers": "off",
     "vim.leader": "<Space>",
@@ -34,7 +31,6 @@
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "k"],
-            // "after": ["<Esc>", ":", "w", "<CR>"],
             "after": ["<Esc>"]
         }
     ],
@@ -47,15 +43,12 @@
             "before": ["<leader>", "d"],
             "after": ["d", "d"]
         },
-        // switch tab
         { "before": ["<S-h>"], "commands": [":bprevious"] },
         { "before": ["<S-l>"], "commands": [":bnext"] },
 
-        // splits
         { "before": ["leader", "v"], "commands": [":vsplit"] },
         { "before": ["leader", "s"], "commands": [":split"] },
 
-        // panes
         {
             "before": ["leader", "h"],
             "commands": ["workbench.action.focusLeftGroup"]
@@ -102,13 +95,10 @@
         }
     ],
     "vim.visualModeKeyBindings": [
-        // Stay in visual mode while indenting
         { "before": ["<"], "commands": ["editor.action.outdentLines"] },
         { "before": [">"], "commands": ["editor.action.indentLines"] },
-        // Move selected lines while staying in visual mode
         { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
         { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
-        // toggle comment selection
         { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] },
         {
             "before": ["q", "q"],

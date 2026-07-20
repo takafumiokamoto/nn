@@ -1,0 +1,18 @@
+[
+    {
+        "keys": ["j", "k"],
+        "command": "exit_insert_mode",
+        "context": [
+            {
+                "key": "setting.command_mode",
+                "operator": "equal",
+                "operand": false
+            },
+            {
+                "key": "setting.is_widget",
+                "operator": "equal",
+                "operand": false
+            }
+        ]
+    }
+]

@@ -1,0 +1,13 @@
+{
+    "hot_exit": true,
+    "ignored_packages": [],
+    "vintage_start_in_command_mode": true,
+    "vintage_ctrl_keys": false,
+    "word_wrap": true,
+    "set_unsaved_view_name": false,
+    "theme": "Adaptive.sublime-theme",
+    "index_files": true,
+    "color_scheme": "Catppuccin Macchiato.sublime-color-scheme",
+    "font_size": 11,
+    "font_face": "Noto Sans JP Medium",
+}
