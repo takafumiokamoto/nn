@@ -5,6 +5,6 @@
 Linux, Mac
 
 ```shell
-chmod +x install/unix.sh
-./install/unix.sh
+chmod +x install.sh
+./install.sh
 ```
