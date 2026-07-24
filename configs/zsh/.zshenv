@@ -8,3 +8,5 @@ fi
 if [[ -f "$HOME/.env.dotfile" ]]; then
     source "$HOME/.env.dotfile"
 fi
+
+export XDG_CONFIG_HOME="$HOME/.config"

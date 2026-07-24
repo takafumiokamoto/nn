@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.font_size = 11
+config.font_size = 12
 config.font_dirs = {
     wezterm.config_dir .. "/fonts",
 }
@@ -18,15 +18,15 @@ if wezterm.target_triple:find("windows", 1, true) then
     defualtDomain = "WSL:Ubuntu-26.04"
 end
 config.default_domain = defualtDomain
-config.window_background_opacity = 1
 config.automatically_reload_config = true
+config.window_decorations = "RESIZE"
 config.cursor_blink_rate = 0
 config.default_cursor_style = "SteadyBlock"
 config.window_padding = {
-    left = 2,
-    right = 2,
-    top = 5,
-    bottom = 0,
+    left = 10,
+    right = 10,
+    top = 10,
+    bottom = 10,
 }
 local action = wezterm.action
 config.keys = {
