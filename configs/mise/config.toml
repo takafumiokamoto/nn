@@ -32,8 +32,6 @@ oxfmt = "latest"
 # Python
 python = "latest"
 uv = "latest"
-# Zig
-zig = "latest"
 # Rust
 rust = "latest"
 # Lua
