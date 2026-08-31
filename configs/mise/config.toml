@@ -49,13 +49,16 @@ ripgrep = "latest"
 starship = "latest"
 gh = "latest"
 aws-cli = { version = "latest", symlink_bins = "true" }
-age = "latest"
-herdr = "latest"
 "aqua:openai/codex" = { version = "latest", minimum_release_age = "0d" }
+claude = { version = "latest", minimum_release_age = "0d" }
 rust-analyzer = "latest"
 golangci-lint = "latest"
 terraform = "latest"
 ty = "latest"
+pinact = "latest"
+"aqua:go-task/task" = "latest"
+tinytex = "latest"
+bun = "latest"
 
 [dotfiles]
 "~/.config/mise" = { source = ".", mode = "symlink" }

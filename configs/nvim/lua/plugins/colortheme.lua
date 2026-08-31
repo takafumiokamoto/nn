@@ -39,4 +39,7 @@ return {
     {
         "alligator/accent.vim",
     },
+    {
+        "huyvohcmc/atlas.vim",
+    },
 }

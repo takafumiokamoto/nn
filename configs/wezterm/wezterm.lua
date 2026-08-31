@@ -1,12 +1,12 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-
-config.font_size = 12
+config.automatically_reload_config = true
+config.font_size = 14
 config.font_dirs = {
     wezterm.config_dir .. "/fonts",
 }
 config.font = wezterm.font_with_fallback({
-    { family = "Moralerspace Neon JPDOC", italic = true, weight = "Bold" },
+    { family = "Moralerspace Neon JPDOC", italic = false, weight = "Bold" },
 })
 config.color_scheme = "DoomOne"
 config.hide_tab_bar_if_only_one_tab = true
@@ -18,14 +18,13 @@ if wezterm.target_triple:find("windows", 1, true) then
     defualtDomain = "WSL:Ubuntu-26.04"
 end
 config.default_domain = defualtDomain
-config.automatically_reload_config = true
 config.window_decorations = "RESIZE"
 config.cursor_blink_rate = 0
 config.default_cursor_style = "SteadyBlock"
 config.window_padding = {
     left = 10,
     right = 10,
-    top = 10,
+    top = 0,
     bottom = 10,
 }
 local action = wezterm.action
@@ -125,8 +124,9 @@ config.mouse_bindings = {
 local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 bar.apply_to_config(config, {
     position = "top",
-    max_width = 32,
+    max_width = 40,
     padding = {
+        top = 0,
         left = 1,
         right = 1,
         tabs = {
@@ -164,7 +164,7 @@ bar.apply_to_config(config, {
             enabled = false,
         },
         clock = {
-            enabled = true,
+            enabled = false,
         },
         cwd = {
             enabled = false,
