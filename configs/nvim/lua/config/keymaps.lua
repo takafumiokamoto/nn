@@ -43,6 +43,14 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent lines" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move lines down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines up" })
 
+-- Emacs-like cursor movement in Insert mode
+vim.keymap.set("i", "<C-f>", "<Right>", { desc = "Forward char" })
+vim.keymap.set("i", "<C-b>", "<Left>", { desc = "Backward char" })
+vim.keymap.set("i", "<C-n>", "<Down>", { desc = "Next line" })
+vim.keymap.set("i", "<C-p>", "<Up>", { desc = "Previous line" })
+vim.keymap.set("i", "<C-a>", "<Home>", { desc = "Beginning of line" })
+vim.keymap.set("i", "<C-e>", "<End>", { desc = "End of line" })
+
 vim.keymap.set("n", "<leader>us", function()
     vim.o.laststatus = vim.o.laststatus == 0 and 3 or 0
 end, { desc = "Toggle status line" })
