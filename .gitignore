@@ -6,3 +6,5 @@
 lazy-lock.json
 # env
 .env
+# karabiner
+configs/karabiner/automatic_backups/

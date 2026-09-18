@@ -72,4 +72,5 @@ bun = "latest"
 source "$HOME/.aliases.zsh"
 ''' }
 "~/.zshrc/starship" = { block = 'eval "$(starship init zsh)"' }
+"~/.config/karabiner" = { source = "../karabiner", mode = "symlink" }
 
