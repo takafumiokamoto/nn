@@ -1,5 +1,3 @@
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -13,14 +11,12 @@ vim.opt.undofile = true
 vim.opt.breakindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
-vim.opt.splitright = true
-vim.opt.splitbelow = true
---vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
---vim.opt.list = true
-vim.opt.list = false
-vim.opt.inccommand = "split"
+-- vim.opt.list = false
+-- vim.opt.listchars = {
+--     tab = "» ",
+--     trail = "·",
+--     nbsp = "␣",
+-- }
 vim.opt.cursorline = true
 vim.opt.scrolloff = 20
 vim.opt.confirm = true
@@ -33,6 +29,4 @@ vim.opt.shiftwidth = 4
 vim.opt.winborder = "rounded"
 vim.opt.cmdheight = 0
 vim.opt.linespace = 0
-vim.opt.fileformat = "unix"
-vim.opt.fileformats = { "unix", "dos" }
 vim.opt.titlestring = "nvim"

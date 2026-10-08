@@ -42,4 +42,10 @@ return {
     {
         "huyvohcmc/atlas.vim",
     },
+    {
+        "navarasu/onedark.nvim",
+    },
+    {
+        "sainnhe/edge",
+    },
 }

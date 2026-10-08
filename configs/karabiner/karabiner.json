@@ -221,6 +221,15 @@
                             "to": [{ "key_code": "left_control" }]
                         }
                     ]
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 138,
+                        "vendor_id": 5426
+                    },
+                    "ignore": false,
+                    "mouse_flip_vertical_wheel": true
                 }
             ],
             "name": "Default profile",

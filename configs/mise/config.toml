@@ -54,11 +54,9 @@ claude = { version = "latest", minimum_release_age = "0d" }
 rust-analyzer = "latest"
 golangci-lint = "latest"
 terraform = "latest"
-ty = "latest"
 pinact = "latest"
 "aqua:go-task/task" = "latest"
-tinytex = "latest"
-bun = "latest"
+yazi = "latest"
 
 [dotfiles]
 "~/.config/mise" = { source = ".", mode = "symlink" }

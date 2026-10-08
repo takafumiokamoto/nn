@@ -6,7 +6,8 @@ for _, path in ipairs(vim.fn.glob(vim.fn.stdpath("config") .. "/lsp/*.lua", fals
     vim.lsp.enable(vim.fn.fnamemodify(path, ":t:r"))
 end
 --vim.cmd("colorscheme doom-one")
-vim.cmd("colorscheme doom-one")
+vim.g.edge_style = "neon"
+vim.cmd("colorscheme edge")
 if vim.g.neovide then
     require("config.neovide")
 end
